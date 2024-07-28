@@ -19,12 +19,14 @@ export const Cart = () => {
       </h1>
       </div>
       <div className="cart">
-        {PRODUCTS.map((product) => {
+         {PRODUCTS.map((product) => {
           if (cartItems[product.id] !== 0) {
-            return <CartItem data={product} />;
+            return <CartItem key={product.id} data={product} />;
           }
-        })}
-      </div>
+          return null; // Add this to avoid returning undefined
+           })}
+           </div>
+
 
       {totalAmount > 0 ? (
       <div className='checkout'>
